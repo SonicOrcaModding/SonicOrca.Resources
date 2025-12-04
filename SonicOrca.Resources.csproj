@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Games\S2HD_2.0.1012-rc2\SonicOrca.Resources.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4280AADB-980E-41E1-BD06-F56350E9E93B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>SonicOrca.Resources</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <ApplicationVersion>2.0.1012.10517</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>SonicOrca</RootNamespace>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SonicOrca.Common">
+      <HintPath>lib\SonicOrca.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\ResourceExtensions.cs" />
+    <Compile Include="Resources\FileResourceSource.cs" />
+    <Compile Include="Resources\ILoadedResource.cs" />
+    <Compile Include="Resources\Resource.cs" />
+    <Compile Include="Resources\ResourceException.cs" />
+    <Compile Include="Resources\ResourceFile.cs" />
+    <Compile Include="Resources\ResourceTypeIdentifier.cs" />
+    <Compile Include="Resources\ResourceLoadArgs.cs" />
+    <Compile Include="Resources\ResourcePath.cs" />
+    <Compile Include="Resources\ResourcePathAttribute.cs" />
+    <Compile Include="Resources\ResourceSession.cs" />
+    <Compile Include="Resources\ResourceSource.cs" />
+    <Compile Include="Resources\ResourceTree.cs" />
+    <Compile Include="Resources\ResourceType.cs" />
+    <Compile Include="Resources\XmlLoadedResource.cs" />
+    <Compile Include="Resources\XmlResourceType.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
