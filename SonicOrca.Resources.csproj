@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net10.0;net10.0-android</TargetFrameworks>
     <RootNamespace>SonicOrca</RootNamespace>
     <AssemblyName>SonicOrca.Resources</AssemblyName>
     <LangVersion>12</LangVersion>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendTargetFrameworkToOutputPath Condition="'$(TargetFramework)' == 'net10.0'">false</AppendTargetFrameworkToOutputPath>
     <ProjectGuid>{4280AADB-980E-41E1-BD06-F56350E9E93B}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
