@@ -1,84 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <!--Project was exported from assembly: C:\Games\S2HD_2.0.1012-rc2\SonicOrca.Resources.dll-->
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4280AADB-980E-41E1-BD06-F56350E9E93B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AssemblyName>SonicOrca.Resources</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <ApplicationVersion>2.0.1012.10517</ApplicationVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>net48</TargetFramework>
     <RootNamespace>SonicOrca</RootNamespace>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <AssemblyName>SonicOrca.Resources</AssemblyName>
+    <LangVersion>7.3</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <ProjectGuid>{4280AADB-980E-41E1-BD06-F56350E9E93B}</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\SonicOrca.Common\SonicOrca.Common.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Extensions\ResourceExtensions.cs" />
-    <Compile Include="Resources\FileResourceSource.cs" />
-    <Compile Include="Resources\ILoadedResource.cs" />
-    <Compile Include="Resources\Resource.cs" />
-    <Compile Include="Resources\ResourceException.cs" />
-    <Compile Include="Resources\ResourceFile.cs" />
-    <Compile Include="Resources\ResourceTypeIdentifier.cs" />
-    <Compile Include="Resources\ResourceLoadArgs.cs" />
-    <Compile Include="Resources\ResourcePath.cs" />
-    <Compile Include="Resources\ResourcePathAttribute.cs" />
-    <Compile Include="Resources\ResourceSession.cs" />
-    <Compile Include="Resources\ResourceSource.cs" />
-    <Compile Include="Resources\ResourceTree.cs" />
-    <Compile Include="Resources\ResourceType.cs" />
-    <Compile Include="Resources\XmlLoadedResource.cs" />
-    <Compile Include="Resources\XmlResourceType.cs" />
-    <Compile Include="AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SonicOrca.Common\SonicOrca.Common.csproj">
-      <Project>{3c8278aa-3d64-414f-92a9-6334cf741eb2}</Project>
-      <Name>SonicOrca.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
