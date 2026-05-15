@@ -18,26 +18,55 @@ namespace SonicOrca.Resources
     {
       private static readonly Dictionary<ResourceTypeIdentifier, ResourceType> RegisteredResourceTypeDictionary = new Dictionary<ResourceTypeIdentifier, ResourceType>();
       private readonly ResourceTypeIdentifier _identifier;
+      private static readonly HashSet<Type> RegisteredResourceTypeImplementations = new HashSet<Type>();
 
       static ResourceType()
       {
+        EnsureAllRegistered();
+      }
+
+      private static void EnsureAllRegistered()
+      {
         foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
         {
-          foreach (Type type in assembly.GetTypes())
+          Type[] types;
+          try
           {
-            if (!(typeof (ResourceType) == type) && typeof (ResourceType).IsAssignableFrom(type))
-              Activator.CreateInstance(type);
+            types = assembly.GetTypes();
+          }
+          catch (ReflectionTypeLoadException ex)
+          {
+            types = ex.Types.Where(t => t != null).ToArray();
+          }
+          foreach (Type type in types)
+          {
+            if (type == null)
+              continue;
+            if (type == typeof(ResourceType))
+              continue;
+            if (!typeof(ResourceType).IsAssignableFrom(type))
+              continue;
+            if (type.IsAbstract)
+              continue;
+            if (RegisteredResourceTypeImplementations.Contains(type))
+              continue;
+
+            Activator.CreateInstance(type);
+            RegisteredResourceTypeImplementations.Add(type);
           }
         }
       }
 
       public static ResourceType FromIdentifier(ResourceTypeIdentifier identifier)
       {
+        if (!ResourceType.RegisteredResourceTypeDictionary.ContainsKey(identifier))
+          EnsureAllRegistered();
         return ResourceType.RegisteredResourceTypeDictionary.ContainsKey(identifier) ? ResourceType.RegisteredResourceTypeDictionary[identifier] : throw new ResourceException(identifier.ToString() + " is not a registered resource type.");
       }
 
       public static ResourceType FromPath(string path)
       {
+        EnsureAllRegistered();
         int startIndex = path.IndexOf('.');
         return ResourceType.RegisteredResourceTypes.FirstOrDefault<ResourceType>((Func<ResourceType, bool>) (x => x.DefaultExtension == ((startIndex != -1 ? path.Substring(startIndex) : (string) null) ?? throw new NotImplementedException()))) ?? throw new ResourceException("No registered resource type for this extension.");
       }
