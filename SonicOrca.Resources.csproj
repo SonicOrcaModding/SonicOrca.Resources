@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net10.0;net10.0-android</TargetFrameworks>
+    <TargetFrameworks>net10.0;net10.0-android;net7.0-ios</TargetFrameworks>
+    <TargetFrameworks Condition="'$(BuildingForiOS)' == 'true'">net7.0-ios</TargetFrameworks>
     <RootNamespace>SonicOrca</RootNamespace>
     <AssemblyName>SonicOrca.Resources</AssemblyName>
-    <LangVersion>12</LangVersion>
+    <LangVersion>preview</LangVersion>
     <Nullable>disable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
