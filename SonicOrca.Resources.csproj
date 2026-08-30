@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>$(SonicOrcaTargetFramework)</TargetFramework>
     <RootNamespace>SonicOrca</RootNamespace>
     <AssemblyName>SonicOrca.Resources</AssemblyName>
     <LangVersion>12</LangVersion>
@@ -16,7 +16,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(Platform)' != 'Switch'">
     <ProjectReference Include="..\SonicOrca.Common\SonicOrca.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Platform)' == 'Switch'">
+    <Reference Include="SonicOrca.Common" HintPath="..\SonicOrca.Common\bin\Switch\$(Configuration)\SonicOrca.Common.dll" />
   </ItemGroup>
 </Project>
